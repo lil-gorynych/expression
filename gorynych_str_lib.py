@@ -3,6 +3,7 @@ def str2arr(str):
 
 
 def arr2str(arr, join_parameter = ""):
+    arr = [str(i) for i in arr]
     return join_parameter.join(arr)
 
 
@@ -34,12 +35,16 @@ def connect_numbers(arr):
 def find_last_symbol(arr, symb, initial_pos=0):
     pos = -1
     for i, elem in enumerate(arr):
-        if elem in symb and i >= initial_pos:
+        if str(elem) in symb and i >= initial_pos:
              pos = i
     return pos
 
 def find_first_symbol(arr, symb, initial_pos=0):
     for i, elem in enumerate(arr):
-        if elem in symb and i >= initial_pos:
+        if str(elem) in symb and i >= initial_pos:
             return i
     return -1
+
+
+def go2nums(arr):
+    return [int(i) if i.isdigit() else i for i in arr]
